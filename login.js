@@ -4,7 +4,8 @@ require("./helpers/setup");
 
 var wd = require("wd"),
     _ = require('underscore'),
-    serverConfigs = require('./helpers/appium-servers');
+    serverConfigs = require('./helpers/appium-servers'),
+    shell = require('shelljs');
 
 describe("android simple", function () {
   this.timeout(300000);
@@ -38,6 +39,7 @@ describe("android simple", function () {
   });
 
   it("should login successfully", function () {
+    shell.echo("echo test");
     return driver
       .waitForElementByClassName("android.widget.Button")
       .elementById("server_addr_imgbtn")
